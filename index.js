@@ -24,10 +24,11 @@ export default function (itemData, quality) {
         if(newFac < 1.3) {
             newFac = 1.3
             dayList = dayList.slice()
+        } else {
+            let latestDay = dayList[dayList.length -1]
+            
+            dayList = dayList.concat([Math.round(latestDay * newFac)])
         }
-        
-        let latestDay = dayList[dayList.length -1]
-        dayList = dayList.concat([Math.round(latestDay * newFac)])
     }
     
     return {
