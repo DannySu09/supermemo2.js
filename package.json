@@ -1,0 +1,23 @@
+{
+  "name": "supermemo2",
+  "version": "1.0.0",
+  "description": "An implement of supermemo 2 algorithm.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build && mocha ./test/index.js",
+    "build": "./node_modules/.bin/babel ./index.js -o ./test/dist.js -w"
+  },
+  "keywords": [
+    "supermemo",
+    "spaced",
+    "repetition"
+  ],
+  "author": "sunaiwen",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-es2015-block-scoping": "^6.5.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.5.2",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.5.0"
+  }
+}
