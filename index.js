@@ -4,8 +4,7 @@
  */
 
 function calcFactor(oldFac, quality) {
-    let newFac = oldFac + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-    return newFac < 1.3 ? 1.3 : newFac
+    return oldFac + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
 }
 
 /**
