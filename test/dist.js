@@ -1,44 +1,41 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-exports.default = function (itemData, quality) {
-    var oldFac = itemData.factor;
-    var dayList = itemData.dayList;
+exports.default = function (quality, lastSchedule, lastFactor) {
     var newFac = undefined;
+    var curSchedule = undefined;
 
-    if (oldFac > 2.5) {
-        console.error('factor should not be larger than 2.5');
-        oldFac = 2.5;
-    }
-
-    if (dayList == null || dayList.length === 0) {
-        dayList = [1, 6];
-    }
-
-    if (quality < 0) {
+    if (quality == null || quality < 0 || quality > 5) {
         quality = 0;
     }
 
-    if (quality < 3) {
-        newFac = oldFac;
-        dayList = dayList.slice();
+    if (lastSchedule === 1) {
+        curSchedule = 6;
+        newFac = 2.5;
+    } else if (lastSchedule == null) {
+        curSchedule = 1;
+        newFac = 2.5;
     } else {
-        newFac = calcFactor(oldFac, quality);
+        if (quality < 3) {
+            newFac = lastFactor;
+            curSchedule = lastSchedule;
+        } else {
+            newFac = calcFactor(lastFactor, quality);
 
-        if (newFac < 1.3) {
-            newFac = 1.3;
+            if (newFac < 1.3) {
+                newFac = 1.3;
+            }
+
+            curSchedule = Math.round(lastSchedule * newFac);
         }
-
-        var latestDay = dayList[dayList.length - 1];
-        dayList = dayList.concat([Math.round(latestDay * newFac)]);
     }
 
     return {
         factor: newFac,
-        dayList: dayList,
+        schedule: curSchedule,
         isRepeatAgain: quality < 4
     };
 };
@@ -53,6 +50,6 @@ function calcFactor(oldFac, quality) {
 }
 
 /**
- * @params {object} the data of the reviewed item
  * @params {number} a number between 0~5 representing the quality of review. 0 is the worse while 5 is the best.
+ * @params {number} the factor of last schedual
  */
