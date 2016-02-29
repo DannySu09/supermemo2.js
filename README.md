@@ -19,6 +19,6 @@ The output will be:
 {
     schedule: Number, // The next review space.
     factor: Number, // The factor that should be use in the next round of caculation.
-    isRepeatAgain: Boolean // If true 
+    isRepeatAgain: Boolean // If is true, should review the item again until the quality is not less than 4.
 }
 ```
