@@ -5,23 +5,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (quality, lastSchedule, lastFactor) {
-    var newFac = undefined;
-    var curSchedule = undefined;
+    var newFac = void 0;
+    var curSchedule = void 0;
 
     if (quality == null || quality < 0 || quality > 5) {
         quality = 0;
     }
 
-    if (lastSchedule === 1) {
-        curSchedule = 6;
-        newFac = 2.5;
-    } else if (lastSchedule == null) {
+    if (quality < 3) {
+        newFac = lastFactor;
         curSchedule = 1;
-        newFac = 2.5;
     } else {
-        if (quality < 3) {
+        if (lastSchedule === 1) {
+            curSchedule = 6;
             newFac = lastFactor;
-            curSchedule = lastSchedule;
+        } else if (lastSchedule == null) {
+            curSchedule = 1;
+            newFac = 2.5;
         } else {
             newFac = calcFactor(lastFactor, quality);
 
