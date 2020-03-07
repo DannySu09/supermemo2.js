@@ -1,7 +1,7 @@
 /* global it */
 /* global describe */
 var chai = require('chai')
-var sm2 = require('./dist.js').default
+var sm2 = require('../dist.js').default
 
 chai.should()
 
