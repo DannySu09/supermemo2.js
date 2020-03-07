@@ -1,6 +1,6 @@
 {
   "name": "supermemo2",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "An implement of supermemo 2 algorithm.",
   "main": "index.js",
   "scripts": {

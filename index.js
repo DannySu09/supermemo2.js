@@ -19,20 +19,20 @@ export default function (quality, lastSchedule, lastFactor) {
         quality = 0
     }
     
-    if(lastSchedule === 1) {
-        curSchedule = 6
-        newFac = 2.5
-    } else if(lastSchedule == null) {
-        curSchedule = 1
-        newFac = 2.5
+    if (quality < 3) {
+        newFac = lastFactor
+        curSchedule = 1 
     } else {
-        if(quality < 3) {
+        if (lastSchedule === 1) {
+            curSchedule = 6
             newFac = lastFactor
-            curSchedule = lastSchedule
+        } else if (lastSchedule == null) {
+            curSchedule = 1
+            newFac = 2.5
         } else {
             newFac = calcFactor(lastFactor, quality)
-            
-            if(newFac < 1.3) {
+
+            if (newFac < 1.3) {
                 newFac = 1.3
             }
             
