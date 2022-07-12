@@ -1,6 +1,10 @@
+
+> WARNING: This reposity is no longer maintained. If you are interested in how this works, please checkout the link below.
+
+
 Implement the SuperMemo 2 algorithm.
 
-Check this article for detail: [https://www.supermemo.com/english/ol/sm2.htm](https://www.supermemo.com/english/ol/sm2.htm)
+Check this post for detail: [https://www.supermemo.com/english/ol/sm2.htm](https://www.supermemo.com/english/ol/sm2.htm)
 
 ## Usage
 
